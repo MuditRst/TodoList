@@ -1,0 +1,24 @@
+<%- include("header"); -%>
+
+    <div class="box" id="heading">
+        <h1><%= dayvar %></h1>
+    </div>
+
+
+    <div class="box">
+        <% thing.forEach(function(item){ %>
+        <form action="/delete" method="POST">
+            <div class="item">
+                <input type="checkbox" name="deleteItem" value="<%=item._id%>" onchange="this.form.submit()">
+                <p> <%= item.name %> </p>
+                <input name="hiddenlistname" value="<%= dayvar %>" type="hidden"></input>
+            </div>
+        </form>
+        <% }) %>
+        <form class="item" action="/" method="post">
+            <input type="text" name ="add" placeholder="New item" autocomplete="off">
+            <button type="submit" name="list" value=<%= dayvar %>>+</button>
+        </form>
+    </div>
+
+<%- include("footer"); -%>
