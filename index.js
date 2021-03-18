@@ -115,30 +115,6 @@ app.post("/delete",function(req,res){
 
 })
 
-/*
-app.get("/CreateCustomList/:website",function(req,res){
-    const webname = _.capitalize(req.params.website);
-
-    List.findOne({name : webname},function(err,foundlist){
-        if(!err){
-            if(!foundlist){
-                const list = new List({
-                    name: webname,
-                    items: defaultarray
-                })
-            
-                list.save();
-
-                res.redirect("/" + "CreateCustomList" + webname)
-
-            }else{
-                res.render("index",{dayvar : foundlist.name,thing : foundlist.items})
-            }
-        }
-    })
-})
-*/
-
 app.post("/work",function (req,res) {
     let wrk = req.body.add
     workItems.push(wrk)
